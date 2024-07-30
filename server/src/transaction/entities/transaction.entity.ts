@@ -1,16 +1,23 @@
-import { Category } from "src/category/entities/category.entity";
-import { User } from "src/user/entities/user.entity";
-import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryColumn } from "typeorm";
+import { Category } from 'src/category/entities/category.entity';
+import { User } from 'src/user/entities/user.entity';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity()
 export class Transaction {
-  @PrimaryColumn({ name: 'transaction_id' })
-   id:number;
+  @PrimaryGeneratedColumn({ name: 'transaction_id' })
+  id: number;
 
   @Column()
   title: string;
 
-  @Column({ nullable: true})
+  @Column({ nullable: true })
   type: string;
 
   @Column()
@@ -30,4 +37,3 @@ export class Transaction {
   @CreateDateColumn()
   updatedAt: Date;
 }
-
